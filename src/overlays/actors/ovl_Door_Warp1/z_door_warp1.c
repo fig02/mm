@@ -913,7 +913,7 @@ void DoorWarp1_Update(Actor* thisx, GlobalContext* globalCtx) {
 
     if ((this->unk_1A0 != NULL) && (this->unk_1A0->unk_15C != this->unk_204)) {
         this->unk_1A0->actor.world.pos.y = this->dyna.actor.world.pos.y;
-        this->unk_1A0->unk_158 = this->dyna.actor.world.pos.y;
+        this->unk_1A0->blueWarpPosY = this->dyna.actor.world.pos.y;
         this->unk_1A0->unk_15C = this->unk_204;
     }
 
