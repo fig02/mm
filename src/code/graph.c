@@ -329,6 +329,7 @@ void Graph_Update(GraphicsContext* gfxCtx, GameState* gameState) {
     gameState->unk_A3 = 0;
 
     Graph_UpdateGame(gameState);
+    osSyncPrintf("hello from osSyncPrintf! current frame:%d\n", gameState->frames);
     Graph_ExecuteAndDraw(gfxCtx, gameState);
 }
 

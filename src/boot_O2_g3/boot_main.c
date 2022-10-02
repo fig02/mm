@@ -13,6 +13,7 @@ void bootproc(void) {
     osInitialize();
     osUnmapTLBAll();
     gCartHandle = osCartRomInit();
+    isPrintfInit();
     StackCheck_Init(&sIdleThreadInfo, sIdleThreadStack, sIdleThreadStack + sizeof(sIdleThreadStack), 0, 256, "idle");
     osCreateThread(&sIdleThread, Z_THREAD_ID_IDLE, Idle_ThreadEntry, NULL, sIdleThreadStack + sizeof(sIdleThreadStack),
                    Z_PRIORITY_IDLE);
