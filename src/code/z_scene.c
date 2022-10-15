@@ -532,11 +532,7 @@ void Scene_SetExitFade(PlayState* play) {
     play->transitionType = Entrance_GetTransitionFlags(play->nextEntrance) & 0x7F;
 }
 
-/**
- * Executes all of the commands in a scene or room header.
- */
-s32 Scene_ProcessHeader(PlayState* play, SceneCmd* header) {
-    static void (*sceneCmdHandlers[])(PlayState*, SceneCmd*) = {
+    void (*sceneCmdHandlers[])(PlayState*, SceneCmd*) = {
         Scene_HeaderCmdSpawnList,
         Scene_HeaderCmdActorList,
         Scene_HeaderCmdActorCutsceneCamList,
@@ -569,6 +565,10 @@ s32 Scene_ProcessHeader(PlayState* play, SceneCmd* header) {
         Scene_HeaderCmd1D,
         Scene_HeaderCmdMiniMapCompassInfo,
     };
+/**
+ * Executes all of the commands in a scene or room header.
+ */
+s32 Scene_ProcessHeader(PlayState* play, SceneCmd* header) {
     u32 cmdId;
 
     while (true) {
