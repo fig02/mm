@@ -3,7 +3,7 @@
 /**
  * Gets the relevant text ID for hints in first cycle.
  * 
- * In Ocarina of Time, this system was a more elbaorate system that
+ * In Ocarina of Time, this was a more elbaorate system that
  * determined which hint to give based on a script. 
  * That system has been replaced with this single function that hardcodes the checks.
  */
