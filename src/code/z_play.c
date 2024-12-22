@@ -32,6 +32,8 @@ u8 sMotionBlurStatus;
 #include "z64vis.h"
 #include "z64visfbuf.h"
 
+#include "coverage.h"
+
 #include "overlays/gamestates/ovl_daytelop/z_daytelop.h"
 #include "overlays/gamestates/ovl_opening/z_opening.h"
 #include "overlays/gamestates/ovl_file_choose/z_file_select.h"
@@ -1591,6 +1593,7 @@ void Play_SpawnScene(PlayState* this, s32 sceneId, s32 spawn) {
     s32 pad;
     SceneTableEntry* scene = &gSceneTable[sceneId];
 
+    set_coverage_flag(gSaveContext.save.vistied_scenes, sceneId);
     scene->unk_D = 0;
     this->loadedScene = scene;
     this->sceneId = sceneId;

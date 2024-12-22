@@ -721,6 +721,7 @@ beginseg
     include "$(BUILD_DIR)/src/code/audio_thread_manager.o"
     include "$(BUILD_DIR)/src/code/title_setup.o"
     include "$(BUILD_DIR)/src/code/game.o"
+    include "$(BUILD_DIR)/src/code/coverage.o"
     include "$(BUILD_DIR)/src/code/gamealloc.o"
     include "$(BUILD_DIR)/src/code/graph.o"
     include "$(BUILD_DIR)/src/code/gfxalloc.o"

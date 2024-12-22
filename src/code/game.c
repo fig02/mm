@@ -15,6 +15,7 @@
 #include "z64speed_meter.h"
 #include "z64vimode.h"
 #include "z64vis.h"
+#include "coverage.h"
 
 s32 gFramerateDivisor = 1;
 f32 gFramerateDivisorF = 1.0f;
@@ -153,6 +154,7 @@ void GameState_Update(GameState* gameState) {
     GameState_SetFrameBuffer(gameState->gfxCtx);
 
     gameState->main(gameState);
+    draw_coverage_info(gameState);
 
     if (R_PAUSE_BG_PRERENDER_STATE != PAUSE_BG_PRERENDER_PROCESS) {
         GameState_Draw(gameState, gfxCtx);

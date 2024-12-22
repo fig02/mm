@@ -3,6 +3,7 @@
 #include "tha.h"
 #include "libu64/loadfragment.h"
 #include "zelda_arena.h"
+#include "coverage.h"
 #include "global.h"
 
 void EffectSS_ResetEntry(EffectSs* particle);
@@ -201,6 +202,8 @@ void EffectSs_Spawn(PlayState* play, s32 type, s32 priority, void* initData) {
                                                               (uintptr_t)overlayEntry->loadedRamAddr))
                                          : NULL);
     }
+
+    set_coverage_flag(gSaveContext.save.loaded_effects, type);
 
     if (profile->init != NULL) {
         // Delete the previous effect in the slot, in case the slot wasn't free

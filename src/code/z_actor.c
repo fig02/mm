@@ -7,6 +7,7 @@
 #include "attributes.h"
 #include "sys_cfb.h"
 #include "libu64/loadfragment.h"
+#include "coverage.h"
 
 // Variables are put before most headers as a hacky way to bypass bss reordering
 FaultClient sActorFaultClient; // 2 funcs
@@ -3456,7 +3457,7 @@ ActorProfile* Actor_LoadOverlay(ActorContext* actorCtx, s16 index) {
                                                               (uintptr_t)overlayEntry->loadedRamAddr))
                                          : NULL);
     }
-
+    set_coverage_flag(gSaveContext.save.loaded_actors, index);
     return profile;
 }
 
