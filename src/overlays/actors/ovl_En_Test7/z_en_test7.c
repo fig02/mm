@@ -245,7 +245,7 @@ void EnTest7_UpdateFeathers(PlayState* play, OwlWarpFeather* feathers, EnTest7* 
     f32 temp_f26;
     f32 temp_f2;
 
-    for (i = 0, feather = feathers; i < (OWL_WARP_NUM_FEATHERS * sizeof(OwlWarpFeather));
+    for (i = 0, feather = feathers; i < (s32)(OWL_WARP_NUM_FEATHERS * sizeof(OwlWarpFeather));
          i += sizeof(OwlWarpFeather), feather++) {
 
         if (feather->type == OWL_WARP_FEATHER_TYPE_DISABLED) {
@@ -322,7 +322,7 @@ void EnTest7_DrawFeathers(PlayState* play2, OwlWarpFeather* feathers) {
     gDPSetPrimColor(POLY_OPA_DISP++, 0, 0x80, 255, 255, 255, 255);
     gDPSetEnvColor(POLY_OPA_DISP++, 255, 255, 255, 255);
 
-    for (i = 0, feather = feathers; i < (OWL_WARP_NUM_FEATHERS * sizeof(OwlWarpFeather));
+    for (i = 0, feather = feathers; i < (s32)(OWL_WARP_NUM_FEATHERS * sizeof(OwlWarpFeather));
          i += sizeof(OwlWarpFeather), feather++) {
         if (feather->type == OWL_WARP_FEATHER_TYPE_DISABLED) {
             continue;

@@ -1006,9 +1006,15 @@ void Message_DecodeNES(PlayState* play) {
     u32 timeToMoonCrash;
     s16 i;
 #ifndef AVOID_UB
+    // UB: digits[4] is accessed below (see bug annotation).
+    // On the IDO compiler the stack in memory is in the reverse
+    // order to variable declarations, so this ends up accessing
+    // numLines.
     s16 numLines;
     s16 digits[4];
 #else
+    // Make this behavior consistent across compilers that allocate
+    // stack differently.
     struct {
         s16 digits[4];
         s16 numLines;

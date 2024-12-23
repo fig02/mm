@@ -295,7 +295,7 @@ void FlagSet_Draw(GameState* gameState) {
     // Print the flag bits in the current byte, largest to smallest
     for (sFlagBitIndex = 7; sFlagBitIndex >= 0; sFlagBitIndex--) {
         // Highlight current flag bit in white, rest in grey
-        if (sFlagBitIndex == sCurrentBit) {
+        if ((u32)sFlagBitIndex == sCurrentBit) {
             GfxPrint_SetColor(&printer, 200, 200, 200, 255);
         } else {
             GfxPrint_SetColor(&printer, 100, 100, 100, 255);

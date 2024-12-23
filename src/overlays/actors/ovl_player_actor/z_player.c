@@ -5671,7 +5671,7 @@ void func_80833864(PlayState* play, Player* this, PlayerMeleeWeaponAnimation mel
     }
 
     // Accumulate consecutive slashes to do the "third slash" types
-    if ((meleeWeaponAnim != this->meleeWeaponAnimation) || (this->unk_ADD >= 3)) {
+    if (((s32)meleeWeaponAnim != this->meleeWeaponAnimation) || (this->unk_ADD >= 3)) {
         this->unk_ADD = 0;
     }
 
@@ -11444,7 +11444,7 @@ void Player_UpdateInterface(PlayState* play, Player* this) {
         }
     }
 
-    if (doActionB > -1) {
+    if ((s32)doActionB > -1) {
         Interface_SetBButtonPlayerDoAction(play, doActionB);
     } else if (play->interfaceCtx.bButtonPlayerDoActionActive) {
         play->interfaceCtx.bButtonPlayerDoActionActive = false;

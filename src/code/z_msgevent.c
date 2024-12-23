@@ -673,7 +673,7 @@ s32 MsgEvent_CheckWornMask(Actor* actor, PlayState* play, u8** script, MsgScript
     s32 mask = SCRIPT_PACK_16(cmd->maskH, cmd->maskL);
     s16 skip = SCRIPT_PACK_16(cmd->offsetH, cmd->offsetL);
 
-    if (Player_GetMask(play) == mask) {
+    if ((s32)Player_GetMask(play) == mask) {
         *script += skip;
     }
     return false;
