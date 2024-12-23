@@ -204,6 +204,7 @@ void EffectSs_Spawn(PlayState* play, s32 type, s32 priority, void* initData) {
     }
 
     set_coverage_flag(gSaveContext.save.loaded_effects, type);
+    gSaveContext.save.last_effect = type;
 
     if (profile->init != NULL) {
         // Delete the previous effect in the slot, in case the slot wasn't free

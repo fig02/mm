@@ -3458,6 +3458,7 @@ ActorProfile* Actor_LoadOverlay(ActorContext* actorCtx, s16 index) {
                                          : NULL);
     }
     set_coverage_flag(gSaveContext.save.loaded_actors, index);
+    gSaveContext.save.last_actor = index;
     return profile;
 }
 

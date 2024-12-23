@@ -1,4 +1,5 @@
 #include "global.h"
+#include "coverage.h"
 
 /**
  * Spawn an object file of a specified ID that will persist through room changes.
@@ -29,6 +30,9 @@ s32 Object_SpawnPersistent(ObjectContext* objectCtx, s16 id) {
         objectCtx->slots[objectCtx->numEntries + 1].segment =
             (void*)ALIGN16((uintptr_t)objectCtx->slots[objectCtx->numEntries].segment + size);
     }
+
+    set_coverage_flag(gSaveContext.save.loaded_objects, id);
+    gSaveContext.save.last_object = id;
 
     objectCtx->numEntries++;
     objectCtx->numPersistentEntries = objectCtx->numEntries;
@@ -144,6 +148,9 @@ void* func_8012F73C(ObjectContext* objectCtx, s32 slot, s16 id) {
     objectCtx->slots[slot].id = -id;
     objectCtx->slots[slot].dmaReq.vromAddr = 0;
 
+    set_coverage_flag(gSaveContext.save.loaded_objects, id);
+    gSaveContext.save.last_object = id;
+    
     fileTableEntry = &gObjectTable[id];
     vromSize = fileTableEntry->vromEnd - fileTableEntry->vromStart;
 

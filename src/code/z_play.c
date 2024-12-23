@@ -1594,6 +1594,7 @@ void Play_SpawnScene(PlayState* this, s32 sceneId, s32 spawn) {
     SceneTableEntry* scene = &gSceneTable[sceneId];
 
     set_coverage_flag(gSaveContext.save.vistied_scenes, sceneId);
+    gSaveContext.save.last_scene = sceneId;
     scene->unk_D = 0;
     this->loadedScene = scene;
     this->sceneId = sceneId;

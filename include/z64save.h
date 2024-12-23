@@ -337,8 +337,13 @@ typedef struct Save {
     /* 0x22 */ u8 hasTatl;          // "bell_flag"
     /* 0x23 */ u8 isOwlSave;
     /* 0x24 */ SaveInfo saveInfo;
+    u8 last_scene;
+    u16 last_actor;
+    u16 last_object;
+    u8 last_effect;
     u8 vistied_scenes[14]; // 112 scenes, 112 bits
     u8 loaded_actors[87]; // 689 actors, 696 bits
+    u8 loaded_objects[81]; // 642 objects, 648 bits
     u8 loaded_effects[5]; // 38 effects, 40 bits
 } Save; // size = 0x100C
 

@@ -20,11 +20,9 @@ u32 count_bits_in_bytes(u8* array, u32 count) {
     for (i = 0; i < count; i++) {
         u8 byte = array[i];
 
-        for (j = 0; j < 8; j++) {
-            if (byte & 1) {
-                ret++;
-            }
-            byte >>= 1;
+        while (byte != 0) {
+            byte &= byte - 1;
+            ret++;
         }
     }
 
@@ -57,7 +55,10 @@ void draw_coverage_info(GameState* gamestate) {
     GfxPrint_Printf(&printer, "actors : %d/670", COUNT_BITS(gSaveContext.save.loaded_actors));
 
     GfxPrint_SetPos(&printer, 1, 9);
-    GfxPrint_Printf(&printer, "effects: %d/38", COUNT_BITS(gSaveContext.save.loaded_effects));
+    GfxPrint_Printf(&printer, "objects: %d/649", COUNT_BITS(gSaveContext.save.loaded_objects));
+
+    GfxPrint_SetPos(&printer, 1, 10);
+    GfxPrint_Printf(&printer, "effects: %d/39", COUNT_BITS(gSaveContext.save.loaded_effects));
 
 
     gfx = GfxPrint_Close(&printer);
