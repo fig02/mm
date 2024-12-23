@@ -1583,7 +1583,7 @@ s32 Boss05_Fragment_OverrideLimbDraw(PlayState* play, s32 limbIndex, Gfx** dList
                                      Actor* thisx) {
     Boss05* this = (Boss05*)thisx;
 
-    if (limbIndex != sFragmentIndexToLimbIndex[BIO_BABA_GET_FRAGMENT_INDEX(&this->dyna.actor)]) {
+    if (limbIndex != (s32)sFragmentIndexToLimbIndex[BIO_BABA_GET_FRAGMENT_INDEX(&this->dyna.actor)]) {
         *dList = NULL;
     } else if (this->fragmentState >= BIO_BABA_FRAGMENT_STATE_ABOVE_WATER) {
         rot->x += this->frameCounter * 0x3000;
@@ -1597,7 +1597,7 @@ s32 Boss05_Fragment_OverrideLimbDraw(PlayState* play, s32 limbIndex, Gfx** dList
 void Boss05_Fragment_PostLimbDraw(PlayState* play, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
     Boss05* this = (Boss05*)thisx;
 
-    if (limbIndex != sFragmentIndexToLimbIndex[BIO_BABA_GET_FRAGMENT_INDEX(&this->dyna.actor)]) {
+    if (limbIndex != (s32)sFragmentIndexToLimbIndex[BIO_BABA_GET_FRAGMENT_INDEX(&this->dyna.actor)]) {
         Matrix_MultZero(&this->fragmentPos);
     }
 }

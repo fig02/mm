@@ -103,7 +103,7 @@ uintptr_t Graph_FaultAddrConv(uintptr_t address, void* param) {
     size_t diff;
     s32 i;
 
-    for (i = 0; i < gGraphNumGameStates; i++, gameStateOvl++) {
+    for (i = 0; i < (s32)gGraphNumGameStates; i++, gameStateOvl++) {
         diff = (uintptr_t)gameStateOvl->vramEnd - (uintptr_t)gameStateOvl->vramStart;
         ramStart = gameStateOvl->loadedRamAddr;
         ramConv = (uintptr_t)gameStateOvl->vramStart - (uintptr_t)ramStart;
