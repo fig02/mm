@@ -1005,8 +1005,17 @@ void Message_DecodeNES(PlayState* play) {
     s16 value;
     u32 timeToMoonCrash;
     s16 i;
+#ifndef AVOID_UB
     s16 numLines;
     s16 digits[4];
+#else
+    struct {
+        s16 digits[4];
+        s16 numLines;
+    } forceLayout;
+#define numLines forceLayout.numLines
+#define digits forceLayout.digits
+#endif
     s16 spC6 = 0;
     u16 sfxHi;
     f32 var_fs0;
@@ -1940,4 +1949,6 @@ void Message_DecodeNES(PlayState* play) {
         decodedBufPos++;
         msgCtx->msgBufPos++;
     }
+#undef numLines
+#undef digits
 }
